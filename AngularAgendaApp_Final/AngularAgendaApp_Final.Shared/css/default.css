@@ -1,0 +1,20 @@
+﻿img.sponsorLogo {
+    width: 65%;
+}
+
+img.sponsorLogo.even {
+    float: right;
+    clear: both;
+}
+
+img.sponsorLogo.odd {
+    float: left;
+    clear: both;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+main{height:100%}a{text-decoration:underline}div.speakerItem h3{display:inline}ul{list-style-type:none;padding-left:0}.speakerItem{display:flex}.logo img{display:block;margin-left:auto;margin-right:auto;vertical-align:middle;height:70px}.logo a{width:150px;display:block;vertical-align:middle}.speakers li{margin-right:1em}.speakers li p{margin-bottom:0}.speakers li{float:left}.agendaItem header{display:-webkit-flex;display:-ms-flexbox;display:flex}.agendaItem header .speakers{-ms-flex:1 auto;flex:1 0 0}.agendaItem .time{text-align:right}hr{margin:0}.agendaList>ul>li:hover,.sponsorList>ul>li:hover,.speakerList>ul>li:hover{background-color:#a9a9a9;transition:background-color .5s ease-in-out}.info.happeningNow{border-left:5px groove #0f0;padding-left:5px}.info{padding-left:10px}.agendaList a{color:#fff;text-decoration:none}

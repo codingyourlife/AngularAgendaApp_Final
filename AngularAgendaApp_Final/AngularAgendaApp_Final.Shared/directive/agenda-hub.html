@@ -1,0 +1,76 @@
+﻿
+<div class="hub" data-win-control="WinJS.UI.Pivot">
+    <section class="section"
+             data-win-control="WinJS.UI.PivotItem"
+             data-win-options="{ isHeaderStatic: true, header: 'Agenda' }">
+        <div class="agendaList" ng-controller="AgendaController as ctrl">
+            <progress ng-hide="Talks.length"></progress>
+            <input ng-model="talksfilter.$" type="text">
+            <ul ng-show="Talks.length">
+                <li ng-repeat="talk in Talks | filter: talksfilter">
+                    <a class="agendaItem" ng-href="#/talks/{{ talk.Title }}">
+                        <div class="info" ng-class="{happeningNow: talkisnow(talk)}">
+                            <header>
+                                <ul class="speakers">
+                                    <li ng-repeat="speaker in talk.Speakers">
+                                        <p class="speaker">{{speaker.Name}}</p>
+                                    </li>
+                                </ul>
+                                <div style="clear: both"></div>
+                                <p class="time"> {{ talk.StartTime | date:'shortTime' }} - {{ talk.EndTime | date:'shortTime' }}</p>
+                            </header>
+                            <content>
+                                <h2 class="title">{{ talk.Title }}</h2>
+                                <p class="Description">{{ talk.Description}}</p>
+                            </content>
+                        </div>
+                    </a>
+                    <hr />
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section"
+             data-win-control="WinJS.UI.PivotItem"
+             data-win-options="{ isHeaderStatic: true, header: 'Sprecher' }">
+
+        <div class="speakerList" ng-controller="SpeakersController as speakersCtrl">
+            <progress ng-hide="Speakers.length"></progress>
+            <ul ng-show="Speakers.length">
+                <li ng-repeat="speaker in Speakers">
+                    <div class="speakerItem">
+                        <div class="logo">
+                            <a target="_blank" href="{{speaker.Company.Website}}">
+                                <img ng-src="{{speaker.Company.Logo}}" title="{{speaker.Company.Name}}" />
+                            </a>
+                        </div>
+                        <div class="description">
+                            <h2>{{ speaker.Name }}</h2>
+                            <p>
+                                <h3>
+                                    Webseite: <a target="_blank" class="website" href="{{speaker.Website}}">{{ speaker.Name }}</a>
+                                </h3>
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="listviewpivotitem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Sponsors', managedLV: true }">
+        <div ng-controller="SponsorsController">
+            <ul>
+                <li ng-repeat="sponsor in Sponsors">
+                    <p>
+                        <a href="{{sponsor.Website}}">
+                            <img ng-src="{{sponsor.Logo}}" title="{{sponsor.Name}}" ng-class-even="'even'" ng-class-odd="'odd'" class="sponsorLogo" />
+                        </a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
